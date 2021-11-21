@@ -32,37 +32,45 @@ Pro Tip: Remember to work incrementally. Start off just implementing the false a
 const range = function (count, skipZero, descending) {
   const values = [];
   if (typeof count !== "number") return [];
+  //For non-number input, output ia an empty array
   else if (count === 0 && skipZero === false) return [];
+  //If the count is equal to zero, output is empty array as well
   else if (
-    
-    (count > 0 && (skipZero === false && descending === false || skipZero === undefined && descending === undefined))
+    //Range including zero in ascending order
+    count > 0 &&
+    ((skipZero === false && descending === false) ||
+      (skipZero === undefined && descending === undefined))
   ) {
     for (let i = 0; i < count; i++) {
-      values[i]=i;
+      values[i] = i;
     }
     return values;
   } else if (
+    //Range without zero in ascending order
     count > 0 &&
-    (skipZero === true && descending === undefined|| (skipZero === true && descending === false))
+    ((skipZero === true && descending === undefined) ||
+      (skipZero === true && descending === false))
   ) {
     for (let i = 1; i <= count; i++) {
       values.push(i);
     }
     return values;
   } else if (count > 0 && skipZero === true && descending === true) {
+    //Range without zero in descending order
     for (let i = count; i > 0; i--) {
-      values[count-i]=i;
+      values[count - i] = i;
     }
     return values;
   } else {
+    //Case (false, true)
     for (let i = count; i > 0; i--) {
-      values[count-i]=i-1;
+      values[count - i] = i - 1;
     }
     return values;
   }
 };
 
-console.log(range(10,true));
+//console.log(range(10,true));
 // Don't change below:
 
 module.exports = { range };

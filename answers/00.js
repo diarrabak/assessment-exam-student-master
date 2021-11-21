@@ -18,11 +18,15 @@ Examples:
 */
 
 const tempConverter = function (value, cToF) {
-  if ((typeof(value)!=='number')) return NaN;   //If the value is not a number
-  else {   //For number inputs
-    if (cToF) {     //True means conversion from C to F with one decimal value
+  if (typeof value !== "number") return NaN;
+  //If the value is not a number
+  else {
+    //For number inputs
+    if (cToF) {
+      //True means conversion from C to F with one decimal value
       return Number((1.8 * value + 32).toFixed(1));
-    } else {       //False is conversion from F to C
+    } else {
+      //False is conversion from F to C
       return Number(((value - 32) / 1.8).toFixed(1));
     }
   }

@@ -22,11 +22,12 @@ Examples:
 const minmax = function (list) {
   if (list.length < 1) return [undefined, undefined];
   else if (Number(list[0])) {
-      list=list.sort((x,y)=>x-y);
-    return [list[0], list[list.length - 1]];
+    //If the array contains numbers only
+    list = list.sort((x, y) => x - y); //Ascending sorting
+    return [list[0], list[list.length - 1]]; //First and last elements are min and max
   } else {
-    list=list.sort();
-    return [list[0], list[list.length - 1]];
+    list = list.sort(); //Alphabetical sorting
+    return [list[0], list[list.length - 1]]; //First and last elements are min and max
   }
 };
 
